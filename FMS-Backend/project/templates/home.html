@@ -1,0 +1,90 @@
+<div class="container">
+	<div class="row content">
+		<br>
+		<div class="row center-align">
+		<div class="input-field col l6 m6 s6">
+						
+						 <select ng-model="live.location" ng-options="x for x in locationNames"  required>
+						 <option value=''>- Choose Location -</option>
+						</select>
+					</div>
+		</div>
+		<div class="row center-align">
+			<div class="input-field col l6 m6 s6">
+			<p>From Date</p>
+						<input type="date" class="datepicker" ng-model="from">
+					</div>
+			<div class="input-field col l6 m6 s6">
+			<p>To Date</p>
+						<input type="date" class="datepicker" ng-model="to">
+					</div>
+		</div>
+		<div class="row center-align">
+			<a ng-click="startLive('bar')" class="waves-effect waves-light btn">Display</a>
+			<a ng-click="Download()" class="waves-effect waves-light btn"> Download</a>
+			
+			<a ng-click="DownloadAll()" class="waves-effect waves-light btn"> Download All Data</a>
+		</div>
+		<br>
+		<div class="row center-align">
+		
+		<button type="button" lazy-load="true" ng-csv="getArray" csv-header="['object_id', 'EmployeeId', 'location','Rest Room','Work Station','Conference Room','Cafeteria Table','Corridors','Drinking Water Availability','comments','date','v_id']" field-separator="{{separator}}" decimal-separator="{{decimalSeparator}}"  filename="fms.csv">Export Excel</button>
+		&nbsp;&nbsp;<span><b> Total Feedback : {{totalRecords}}</b></span>&nbsp;&nbsp;<span><b> Overall Rating : {{overallRating}}</b></span>
+		</div>
+		<div class="row center-align">
+		<div ng-show="showRadio" class="input-field col s1">
+			<p>
+			<input name="group1" type="radio" id="bar" ng-click="startLive('bar')" />
+			<label for="bar">Bar</label>
+			</p>
+			<p>
+			<input name="group1" type="radio" id="horizontalBar" ng-click="startLive('horizontalBar')" />
+			<label for="horizontalBar">Horizontal</label>
+			</p>
+			<p>
+			<input name="group1" type="radio" id="line" ng-click="startLive('line')" />
+			<label for="line">Line</label>
+			</p>
+				
+				<p>
+			<input name="group1" type="radio" id="pie" ng-click="startLive('pie')" />
+			<label for="pie">Pie</label>
+			</p>
+				
+				<p>
+			<input name="group1" type="radio" id="radar" ng-click="startLive('radar')" />
+			<label for="radar">Radar</label>
+			</p>
+			<p>
+			<input name="group1" type="radio" id="doughnut" ng-click="startLive('doughnut')" />
+			<label for="doughnut">Doughnut</label>
+			</p>
+			<p>
+			<input name="group1" type="radio" id="polarArea" ng-click="startLive('polarArea')" />
+			<label for="polarArea">PolarArea</label>
+			</p>
+				
+						
+					</div>
+					<div class="input-field col s7">
+					<div id="ccontainer">
+			
+			<div>
+		</div>
+		
+	</div>
+	</div>
+			<div ng-show="showTable" class="input-field col s4">
+			    <table class="striped responsive-table" style="border:1">
+				<th>Fields</th>
+				<th>Avg. Rating (out of 5)</th>
+				<tr><th>Rest Room</th><th>{{taste}}</th></tr>
+				<tr><th>Work Station</th><th>{{quality}}</th></tr>
+				<tr><th>Conference Room</th><th> {{service}}</th></tr>
+				<tr><th>Cafeteria Table</th><th> {{hygine}}</th></tr>
+				<tr><th>Corridors</th><th> {{veriety}}</th></tr>
+				<tr><th>Drinking Water Availability</th><th> {{veriety}}</th></tr>
+				</table>
+					</div>
+		 
+</div>

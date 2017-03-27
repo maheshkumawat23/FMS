@@ -1,0 +1,70 @@
+<ion-nav-view>
+
+  <ion-header-bar class="bar-assertive">
+    <img src="img/logo.png" height="40px" style="margin-top:-2px">
+    <h1  class="title" style="color:rgb(255,255,255);text-align:center;">Facility Management System</h1>
+  <button class="button button-assertive ion-person-add icon-left" style="color:rgb(255,255,255)" ng-click="openModal()">
+</button>
+  </ion-header-bar>
+  
+  <ion-content class="has-header"  >
+    
+   
+<form name="myform">
+  <div class="list " >
+  <label class="item item-input">
+    <input type="number" name="empId" placeholder="TCS EMP ID" ng-model="login.empID" style="color:rgb(31,43,98)" required>
+  </label>
+  <label class="item item-input item-select">
+    <div class="input-label">
+      Location
+    </div>
+    
+    <select ng-model="login.selectedLocationName" ng-options="x for x in login.locationNames" required>
+ <option value=''>- Choose Location -</option>
+</select>
+    
+  </label>
+  <ul>
+    <h5 style="color:rgb(31,43,98);text-align:center;margin-top:1px">Rate Your Experience</h5>
+	<h6 style="color:rgb(31,43,98);text-align:center;margin-top:-10px">Disclaimer:Please share feedback w.r.t Cleanliness and Ambiance<br> (1 Being Lowest and 5 Being Highest)</h6>
+    <li class="item ">
+    <div class="row"> <div class="col-50" style="font-size:15px;color:rgb(31,43,98)">Rest Room:</div> <div class="col-50"><rating  class="ratingLayout" align="center" ng-model="login.rating.taste" max="login.rating.max" ></rating></div></div>
+    </li>
+    <li class="item">
+    <div class="row"> <div class="col-50" style="font-size:15px;color:rgb(31,43,98)"> Work Station:</div> <div class="col-50"> <rating class="ratingLayout" align="center" ng-model="login.rating.service" max="login.rating.max" ></rating></div></div>
+    </li>
+    <li class="item">
+    <div class="row"> <div class="col-50" style="font-size:15px;color:rgb(31,43,98)">Conference Room: </div> <div class="col-50"><rating class="ratingLayout" align="center" ng-model="login.rating.hygine" max="login.rating.max" ></rating></div></div>
+    </li>
+    <li class="item">
+    <div class="row"> <div class="col-50" style="font-size:15px;color:rgb(31,43,98)">Cafeteria Table:</div> <div class="col-50"><rating class="ratingLayout" align="center" ng-model="login.rating.veriety" max="login.rating.max"></rating></div></div>
+    </li>
+    <li class="item">
+   <div class="row"> <div class="col-50" style="font-size:15px;color:rgb(31,43,98)">Corridors:</div> <div class="col-50"> <rating class="ratingLayout"align="center" ng-model="login.rating.quality" max="login.rating.max" ></rating></div></div>
+    </li>
+	<li class="item">
+   <div class="row"> <div class="col-50" style="font-size:15px;color:rgb(31,43,98);">Drinking Water Availability:</div> <div class="col-50"> <rating class="ratingLayout"align="center" ng-model="login.rating.water" max="login.rating.max" ></rating></div></div>
+    </li>
+    <li class="item item-input">
+     
+    <input type="text" placeholder="Comments" ng-model="login.rating.comments" style="color:rgb(31,43,98)">
+
+  
+    </li>
+
+
+</ul>
+</div>
+  
+
+    <button style="margin-top:-20px" class="button button-block button-assertive" ng-disabled="myform.$invalid||login.rating.taste==0||login.rating.service==0||login.rating.hygine==0||login.rating.veriety==0||login.rating.quality==0||login.rating.water==0" style="color:rgb(31,43,98)" ng-click="login.login()">Submit</button>
+    </form>
+<div class = "row">
+   <div class = "col"></div>
+   <div class = "col"><img src="assets/images/TEP.png" width="100" height="100" style="margin-top:-35px"></div>
+   <div class = "col"></div>
+ </div>
+  </ion-content>
+
+</ion-nav-view>
